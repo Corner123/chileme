@@ -9,7 +9,7 @@ mongoose.connection.on('error',()=>{
     console.listen('数据库错误')
 })
 mongoose.connection.once('open',()=>{
-    
+    console.log('数据库已连接')
 })
 app.use(async ctx=>{
     ctx.body = 'hellooooooooooo'
