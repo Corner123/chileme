@@ -1,7 +1,7 @@
 /** 商品表
  * 字段                    描述                       类型 
  * goodname          商品名                   String
- * price                   商品单价                Number  
+ * price                   商品单价           Number  
  * num                    商品库存数量         Number
  * desc                    商品描述                String
  * recommend        推荐指数                Number    min 0 max 5
@@ -15,3 +15,24 @@
  * material              主要材料                 Array        
  * tast                     口味                       String    (清淡，偏辣，偏甜)			                       
  * */ 
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+const goods = new Schema({
+    goodname: String,
+    price: Number,
+    num: Number,
+    desc: String,
+    recommend: Number,
+    isDrink: Boolean,
+    isCombo: Boolean,
+    type: String,
+    isRecommend: Boolean,
+    sailNum: Number,
+    isOff: Boolean,
+    percent: Number,
+    material: Array,
+    tast: String
+})
+
+module.exports = mongoose.model('Goods', goods)
