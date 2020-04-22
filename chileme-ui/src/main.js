@@ -5,6 +5,7 @@ import store from './store'
 import Axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './assets/style/style.css'
 Vue.config.productionTip = false
 
 Vue.prototype.Axios = Axios   // 配置axios

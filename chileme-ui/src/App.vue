@@ -1,28 +1,31 @@
 <template lang='pug'>
   div#app
-    div#nav
-      router-link(to="/") Home|
-      router-link(to="/about") About
-    router-view
-  
+     el-row
+        el-col(:span='1')
+           div.gridlt
+        el-col(:span='23')
+           div.gridrt
 </template>
 
 <style lang="scss">
+@mixin init{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+html,body{
+  @include init;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  @include init;
+  background: aqua;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.el-row{
+  height: 100%;
 }
+
 </style>
