@@ -14,7 +14,7 @@
                 el-form-item
                     el-button(type="primary" @click="registerHandle('Form')") 立即注册
                     el-button(@click="resetHandle('Form')") 重置
-            el-link(@click='jumpLogin') 默认链接   
+            el-link(@click='jumpLogin') 点击登录  
 </template>
 <script>
 export default {
@@ -64,8 +64,7 @@ export default {
         },
         // 立即登录
         jumpLogin(){
-            alert('跳转登录页')
-            // this.$router.push()
+            this.$router.push('/login')
         }
     }
 }
@@ -81,13 +80,14 @@ export default {
         width:800px;
         height: 650px;
         .icon{
-            width: 150px;
-            height: 150px;
-            line-height: 150px;
-            font-size: 120px;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            font-size: 100px;
             background: yellow;
             color: #fff;
             border-radius: 50%;
+            margin-top: 20px;
         }
         .el-form{
             width:450px;
