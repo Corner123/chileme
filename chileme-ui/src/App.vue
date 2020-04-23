@@ -1,18 +1,26 @@
 <template lang='pug'>
   div#app
-     el-row
-        el-col(:span='1')
-           div.gridlt
-        el-col(:span='23')
-           div.gridrt
+      router-view
 </template>
-
+<script>
+export default {
+  data(){
+    return{
+  
+    }
+  }
+}
+</script>
 <style lang="scss">
-@mixin init{
-  width: 100%;
+@mixin init {
+  width:100%;
   height: 100%;
   overflow: hidden;
   text-align: center;
+}
+@mixin flx($dec:column){
+  display: flex;
+  flex-direction:$dec;
 }
 html,body{
   @include init;
@@ -22,10 +30,6 @@ html,body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @include init;
-  background: aqua;
+  background: slateblue;
 }
-.el-row{
-  height: 100%;
-}
-
 </style>
