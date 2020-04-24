@@ -1,16 +1,16 @@
 <template lang="pug">
     div.login
-       div.loginBox
+        div.loginBox
             div.icon.el-icon-food 
-            el-form(:model="form",:rules="rules",ref="Form",label-width="100px")
+            el-form(:model="form",ref="Form",label-width="100px")
                 el-form-item(label="用户名" prop="username")
                     el-input(v-model="form.username")
                 el-form-item(label="密码" prop="password")
-                    el-input(type='password' v-model="form.password")          
+                    el-input(type='password' v-model="form.password")       
                 el-form-item
-                    el-button(type="primary" @click="loginHandle('Form')") 登录
+                    el-button(type="primary" @click="loginHandle") 登录
                     el-button(@click="resetHandle('Form')") 重置
-            el-link(@click='jumpRegister') 点击登录
+            el-link(@click='jumpRegister') 点击注册        
 </template>
 <script>
 export default {
@@ -18,16 +18,29 @@ export default {
         return{
             form:{
                 username:'',
-                password:'',
+                password:''
             }
         }
     },
     methods:{
         loginHandle(){
-            alert('登录')
+            this.Axios({ 
+                method: 'post',
+                url: '/api/user/register',
+                data: {
+                    username: 'Fr12',
+                    password:'111wwww',
+                    mobile:13324567777
+                }
+            }).then(data =>{
+                console.log(data)
+            }).catch(err => {
+                console.log(err)
+            })
+           
         },
         resetHandle(formName){
-             this.$refs[formName].resetFields()
+            this.$refs[formName].resetFields()
         },
         jumpRegister(){
             this.$router.push('/register')
@@ -46,14 +59,13 @@ export default {
         width:800px;
         height: 450px;
         .icon{
-            width: 120px;
-            height: 120px;
-            line-height: 120px;
-            font-size: 100px;
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            font-size: 120px;
             background: yellow;
             color: #fff;
             border-radius: 50%;
-            margin-top: 20px;
         }
         .el-form{
             width:450px;
