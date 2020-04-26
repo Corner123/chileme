@@ -26,10 +26,10 @@ export default {
         loginHandle(){
             this.Axios({ 
                 method: 'post',
-                url: '/api/user/register',
+                url: '/api/user/login',
                 data: {
-                    username: 'Fr12',
-                    password:'111wwww',
+                    username: 'test1',
+                    password:'psd123456',
                     mobile:13324567777
                 }
             }).then(data =>{
@@ -37,6 +37,20 @@ export default {
             }).catch(err => {
                 console.log(err)
             })
+
+            // this.Axios({ 
+            //     method: 'post',
+            //     url: '/api/user/login',
+            //     data: {
+            //         username: 'test1',
+            //         password:'psd123456',
+            //         mobile:13324567777
+            //     }
+            // }).then(data =>{
+            //     console.log(data)
+            // }).catch(err => {
+            //     console.log(err)
+            // })
            
         },
         resetHandle(formName){

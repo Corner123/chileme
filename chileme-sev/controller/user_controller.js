@@ -77,7 +77,7 @@ const register=async ctx=>{
         mobile: data.mobile,
         createDate: new Date().getTime(),
         lastUpdate: new Date().getTime()
-    }) 
+    })
     // 将数据插入数据库
     await user.save().then(data => {
         // 2.注册成功
@@ -107,6 +107,24 @@ async function register(ctx){}
 const login = async ctx => {
     let data = ctx.request.body
     // 1.验证登录信息是否合法  能否再库中查到该账号，账号信息和密码是否匹配
+    let res = await User.find({mobile:data.mobile})
+    if(!!res.username){
+        if(data.password==res.password){
+            ctx.body = {
+                code:200,
+                flag: true,
+                type:'success',
+                msg:'登录成功'
+            }
+        }
+    }else{
+        ctx.body = {
+            code:200,
+            flag: true,
+            type:'error',
+            msg:'登录失败'
+        }
+    }
     // 2.登录成功
     ctx.body = 'login!'
 }
