@@ -30,6 +30,6 @@ html,body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @include init;
-  background: slateblue;
+  background: rgb(90, 205, 205);
 }
 </style>

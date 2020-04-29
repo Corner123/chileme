@@ -7,22 +7,22 @@
                    span.iconfont &#xe681;
                    i 收银
                 div.menuBtn
-                   span.iconfont &#xe53d;
+                   span.iconfont &#xe648;
                    i 会员  
                 div.menuBtn
-                   span.iconfont &#xe65d;
+                   span.iconfont &#xe603;
                    i 库存
                 div.menuBtn
-                   span.iconfont &#xe635;
+                   span.iconfont &#xe618;
                    i 换班
                 div.menuBtn
-                   span.iconfont &#xe63f;
+                   span.iconfont &#xe618;
                    i 报表
                 div.menuBtn
-                   span.iconfont &#xe65e;
+                   span.iconfont &#xe647;
                    i 辅助
                 div.menuBtn
-                   span.iconfont &#xe602;
+                   span.iconfont &#xe60d;
                    i 退出                
           el-col(:span='23')
               div.gridrt
@@ -34,12 +34,12 @@ export default {
     return{
       ltBtn:[
         {id:1,icon:'&#xe681;',name:'收银',link:''},
-        {id:2,icon:'&#xe53d;',name:'会员',link:''},
-        {id:3,icon:'&#xe65d;',name:'库存',link:''},
-        {id:4,icon:'&#xe635;',name:'换班',link:''},
-        {id:5,icon:'&#xe63f;',name:'报表',link:''},
-        {id:6,icon:'&#xe65e;',name:'辅助',link:''},
-        {id:7,icon:'&#xe602;',name:'退出',link:''},
+        {id:2,icon:'&#xe648;',name:'会员',link:''},
+        {id:3,icon:'&#xe603;',name:'库存',link:''},
+        {id:4,icon:'&#xe618;',name:'换班',link:''},
+        {id:5,icon:'&#xe618;',name:'报表',link:''},
+        {id:6,icon:'&#xe647;',name:'辅助',link:''},
+        {id:7,icon:'&#xe60d;',name:'退出',link:''},
       ]
     }
   }
@@ -69,6 +69,6 @@ export default {
     @include flx;
     flex:1;
   }
-  background: orangered;
+  background: rgb(255, 253, 253);
 }
 </style>
