@@ -20,8 +20,8 @@ router.post('/api/user/register', User.register)// 注册
 router.post('/api/user/login', User.login)// 登录
 // 商品接口
 router.post('/api/user/addGoods',Goods.addGoods) //添加商品
-router.post('/api/user/getGoodsList',Goods.getGoodsList)
-router.post('/api/user/getGoodsItem',Goods.getGoodsItem)
+router.get('/api/user/getGoodsList',Goods.getGoodsList) //查询商品列表
+router.get('/api/user/getGoodsItem',Goods.getGoodsItem) //查询单个商品详情
 // 订单接口
 
 
