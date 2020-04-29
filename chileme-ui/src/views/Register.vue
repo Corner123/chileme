@@ -51,7 +51,42 @@ export default {
         registerHandle(formName){
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    alert('注册成功!')
+                    if(this.form.password!==this.form.cfm){
+                        // this.$message.error('两次密码不一样')
+                        this.$message({
+                            showClose:true,
+                            message:'两次密码不一样',
+                            type:'error'
+                        });
+                        return false
+                    }
+                    this.Axios({ 
+                        method: 'post',
+                        url: '/api/user/register',
+                        data: {
+                            username: this.form.username,
+                            password:this.form.password,
+                            mobile:13324567777
+                        }
+                    }).then(data =>{
+                        console.log(data)
+                        if(data.data.flag){
+                            this.$router.push('/login')
+                        }else{
+                            this.$message({
+                                showClose:true,
+                                message:data.data.msg,
+                                type:'error'
+                        });
+                        }
+                    }).catch(err => {
+                        // this.$message.error(`注册接口失败请稍后做试`)
+                        this.$message({
+                            showClose:true,
+                            message:'注册接口失败请稍后做试',
+                            type:'error'
+                        });
+                    })
                 } else {
                     console.log('注册失败!!')
                     return false

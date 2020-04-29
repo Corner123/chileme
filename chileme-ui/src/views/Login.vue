@@ -24,33 +24,48 @@ export default {
     },
     methods:{
         loginHandle(){
+            if(!this.form.username){
+                this.$notify({
+                    title: '提示',
+                    message: '请输入用户名',
+                    duration: 0
+                 })
+                return false
+            }
+            if(!this.form.password||this.form.password.length<6||this.form.password.length>20){
+                this.$notify({
+                    title: '提示',
+                    message: '请输入密码',
+                    duration: 0
+                 });
+                 return false
+            }
             this.Axios({ 
                 method: 'post',
                 url: '/api/user/login',
                 data: {
-                    username: 'test1',
-                    password:'psd123456',
-                    mobile:13324567777
+                    username: this.form.username,
+                    password:this.form.password,
                 }
             }).then(data =>{
                 console.log(data)
+                if(data.data.flag){
+                    this.$router.push('/')
+                }else{
+                    this.$notify({
+                        title: '提示',
+                        message:data.data.msg,
+                        duration: 0
+                    });
+                }
             }).catch(err => {
+                this.$notify({
+                    title: '提示',
+                    message: '登录失败稍后再试',
+                    duration: 0
+                 });
                 console.log(err)
             })
-
-            // this.Axios({ 
-            //     method: 'post',
-            //     url: '/api/user/login',
-            //     data: {
-            //         username: 'test1',
-            //         password:'psd123456',
-            //         mobile:13324567777
-            //     }
-            // }).then(data =>{
-            //     console.log(data)
-            // }).catch(err => {
-            //     console.log(err)
-            // })
            
         },
         resetHandle(formName){
@@ -69,6 +84,9 @@ export default {
     display:flex;
     justify-content: center;
     align-items: center;
+    .el-notification__title{
+        text-align: left;
+    }
     .loginBox{
         width:800px;
         height: 450px;

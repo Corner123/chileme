@@ -53,7 +53,7 @@ const register=async ctx=>{
     if(res.length){
         ctx.body = {
             code:200,
-            flag: true,
+            flag: false,
             type:'be registered',
             msg:'该手机号已注册'
         }
@@ -64,7 +64,7 @@ const register=async ctx=>{
     if(res.length){
         ctx.body = {
             code:200,
-            flag: true,
+            flag: false,
             type:'be registered',
             msg:'该账号号已注册'
         }
@@ -91,7 +91,7 @@ const register=async ctx=>{
         console.log(err)
         ctx.body = {
             code:200,
-            flag: true,
+            flag: false,
             type:'error',
             msg:'注册失败'
         }
@@ -107,26 +107,32 @@ async function register(ctx){}
 const login = async ctx => {
     let data = ctx.request.body
     // 1.验证登录信息是否合法  能否再库中查到该账号，账号信息和密码是否匹配
-    let res = await User.find({mobile:data.mobile})
-    if(!!res.username){
-        if(data.password==res.password){
+    let res = await User.findOne({username:data.username})
+    console.log(res) // 若查不到数据返回null
+    if(!!res){ //若该数据存在
+        if(data.password == res.password){ // 登录成功
             ctx.body = {
                 code:200,
                 flag: true,
                 type:'success',
                 msg:'登录成功'
             }
+        }else{ // 登陆失败
+            ctx.body = {
+                code:200,
+                flag: false,
+                type:'error',
+                msg:'登录密码错误'
+            }
         }
     }else{
         ctx.body = {
             code:200,
-            flag: true,
-            type:'error',
-            msg:'登录失败'
+            flag: false,
+            type:'not exist',
+            msg:'未找到账号请先注册'
         }
-    }
-    // 2.登录成功
-    ctx.body = 'login!'
+    }  
 }
 
 //3暴露中间件
