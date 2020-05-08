@@ -51,7 +51,7 @@
                             el-button(@click='resetHandle') 重置  
             el-col(:span='12')
                 div.rightTable
-                    el-table(:data="tableData",border,style="width: 100%",max-height="840")
+                    el-table(:data="tableData",border,style="width: 100%",max-height="800")
                         el-table-column(type="index",width="50",fixed)
                         el-table-column(prop="goodname",label="商品名",width="120")
                         el-table-column(prop="price",label="商品单价",width="60")
@@ -176,7 +176,6 @@ export default {
                 method: 'get',
                 url: '/api/user/getGoodsList',
             }).then(data => {
-                // console.log(data)
                 this.tableData = data.data.data
                 for(let item of this.tableData){
                     item.typename = this.transKey(item.type)

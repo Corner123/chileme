@@ -1,10 +1,7 @@
 /** 商品表
  * 字段                    描述                       类型 
-<<<<<<< HEAD
  * goodsId              商品id                Number
-=======
  * goodsID          商品id                   Number
->>>>>>> a1c5068861affb18394c35c0866231ce08743ed5
  * goodname          商品名                   String
  * price                   商品单价           Number  
  * num                    商品库存数量         Number
