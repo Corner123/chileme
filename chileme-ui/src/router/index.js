@@ -5,19 +5,25 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
   const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    children:[
-      //库存管理
-      {
-        path:'/stockManagement',
-        name:'StockManagement',
-        component: () => import('../views/StockManagement.vue')
-      }
-    ]
-  },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      children:[
+        // 库存管理
+        {
+          path:'/stockManagement',
+          name:'StockManagement',
+          component: () => import('../views/StockManagement.vue')
+        },
+        // 商品页
+        // {
+        //   path:'/goods',
+        //   name:'Goods',
+        //   component: () => import('../views/Goods.vue')
+        // }
+      ]
+    },
   // 注册
   {
     path:'/register',
