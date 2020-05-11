@@ -17,11 +17,11 @@ Vue.use(VueRouter)
           component: () => import('../views/StockManagement.vue')
         },
         // 商品页
-        // {
-        //   path:'/goods',
-        //   name:'Goods',
-        //   component: () => import('../views/Goods.vue')
-        // }
+        {
+          path:'/goods',
+          name:'Goods',
+          component: () => import('../views/Goods.vue')
+        }
       ]
     },
   // 注册
