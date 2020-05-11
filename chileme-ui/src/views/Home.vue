@@ -74,6 +74,10 @@ export default {
   .menuBtn{
     @include flx;
     flex:1;
+    line-height: 40px;
+    &:hover{
+      background:rgb(246,36,36);
+    }
   }
   background: rgb(255, 253, 253);
 }
