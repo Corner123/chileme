@@ -57,7 +57,7 @@ export default {
             ],
             // 分类页签中的商品数据
             iGoods:[
-              {id:1,goodname:'',price:10}  
+              {id:1,goodname:'',price:10} 
             ]
             
         }
@@ -87,7 +87,7 @@ $h:100%;
     .menu{
         @include flx;
         height: $h;
-        background: lightgray;
+        background: lightskyblue;
         .usuallyGoods{
             .goodsTitle{
                 height: 40px;
@@ -99,10 +99,9 @@ $h:100%;
                 color:rgb(54, 54, 54);
             }
             .goodsContent{
-                height: 140px;
+                height: 200px;
                 display:flex;
                 padding:15px 40px;
-                // justify-content: space-around;
                 align-items: center;
                 flex-wrap: wrap;
                 margin-bottom: 15px;
@@ -112,7 +111,6 @@ $h:100%;
                     border:1px solid rgb(54, 54, 54);
                     margin:20px 12px;
                     border-radius: 2px;
-                    // box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
                     .uItemsPrice{
                         color:dodgerblue;
                         margin-left: 4px;
@@ -129,7 +127,6 @@ $h:100%;
                     flex:1;
                 }
             }
-            
         }
         .goodsItem{
             width:200px;
@@ -152,7 +149,6 @@ $h:100%;
                     color: red;
                 }
                 .goodsDesPrice{
-                    // height: 40px;
                     line-height: 40px;
                     text-align: left;
                     text-indent: 5px;
