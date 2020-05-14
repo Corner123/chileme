@@ -66,7 +66,7 @@ const register=async ctx=>{
             code:200,
             flag: false,
             type:'be registered',
-            msg:'该账号号已注册'
+            msg:'该账号已注册'
         }
         return
     }
