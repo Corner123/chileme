@@ -10,7 +10,6 @@ app.use(KoaCors({
     credentials:true,
     origin:'http://127.0.0.1:8080'
 }))  //配置跨域模块
-
 // 配置数据库链接
 mongoose.connect(cfg.path)
 mongoose.connection.on('error',()=>{
