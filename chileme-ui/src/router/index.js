@@ -21,7 +21,12 @@ Vue.use(VueRouter)
           path:'/goods',
           name:'Goods',
           component: () => import('../views/Goods.vue')
-        }
+        },
+        {
+          path:'/list',
+          name:'List',
+          component: () => import('../views/List.vue')
+        },
       ]
     },
   // 注册

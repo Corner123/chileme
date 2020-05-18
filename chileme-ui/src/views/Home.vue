@@ -18,7 +18,7 @@
                 div.menuBtn
                    span.iconfont &#xe618;
                    i 报表
-                div.menuBtn
+                div.menuBtn(@click="jumpTo('/list')")
                    span.iconfont &#xe647;
                    i 辅助
                 div.menuBtn
