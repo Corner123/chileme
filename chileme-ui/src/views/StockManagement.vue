@@ -219,7 +219,7 @@ export default {
 <style lang="scss" scoped>
     .stockManagement{
         height: 100%;
-        background: lightcyan;
+        background: lightskyblue;
         .el-row{
             height: 100%;
         }
