@@ -11,6 +11,11 @@ export default {
         return{
             orderTable:[]
         }
+    },
+    props:['ordersList'],
+    mounted(){
+        console.log(this.ordersList)
+        this.orderTable=this.ordersList
     }
 }
 </script>
