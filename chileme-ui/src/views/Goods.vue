@@ -118,8 +118,8 @@ export default {
     mounted(){
         //组件渲染完成之后自动触发
         this.getFoodsData()//获取菜品数据
-        this.addGoods()//获取购物车数据
-        this.getCartsData()//获取订单数据
+        this.getCartsData()//获取购物车数据
+        this.getOrderData()//获取订单数据
     },
     methods:{
         addToCarts(item){
