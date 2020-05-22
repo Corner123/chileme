@@ -7,7 +7,7 @@ module.exports={
           .end()
       },
       devServer: {
-		proxy:"http://localhost:3000"
+		  proxy:"http://localhost:3000"
     },
     productionSourceMap:false
 }
