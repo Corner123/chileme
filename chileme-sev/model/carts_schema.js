@@ -1,3 +1,4 @@
+//定义数据
 const mongoose=require('mongoose')
 const schema=mongoose.Schema
 const Carts=new schema({
@@ -5,5 +6,6 @@ const Carts=new schema({
     name:String,//商品名
     Price:Number,//商品价格
     count:Number,//商品数量
+    
 })
 module.exports=mongoose.model('Carts',Carts)
