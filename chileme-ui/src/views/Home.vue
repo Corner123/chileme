@@ -12,7 +12,7 @@
                 div.menuBtn(@click="jumpTo('/stockManagement')")
                    span.iconfont &#xe603;
                    i 库存
-                div.menuBtn
+                div.menuBtn(@click="jumpTo('/test')")
                    span.iconfont &#xe618;
                    i 换班
                 div.menuBtn
@@ -51,7 +51,6 @@ export default {
   }
 }
 </script>
-</script>
 <style lang="scss" scoped>
 @mixin flx($dec:column){
   display: flex;
@@ -75,11 +74,11 @@ export default {
   .menuBtn{
     @include flx;
     flex:1;
+    line-height: 40px;
     &:hover{
-      background: rgb(246, 36, 36);
+      background:rgb(246,36,36);
     }
   }
-  background: rgb(0, 162, 255);
-  color:#fff;
+  background: rgb(255, 253, 253);
 }
 </style>
