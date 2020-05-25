@@ -1,4 +1,4 @@
-
+//接口
 const Goods = require('../model/goods_schema')
 
 
