@@ -123,21 +123,35 @@ export default {
     },
     methods:{
         addToCarts(item){
-            let flag=false
-            for(let i=0;i<this.cartsList.length;i++){
-                if(this.cartsList[i].id===item.id){
-                    flag=true
-                    break
+            // let flag=false
+            // for(let i=0;i<this.cartsList.length;i++){
+            //     if(this.cartsList[i].id===item.id){
+            //         flag=true
+            //         break
+            //     }
+            // }
+            // if(!flag) this.cartsList.push(item)
+            // console.log(this.cartsList)
+            this.Axios({
+                method:'POST',
+                url:'/api/carts/addGoods',
+                data:{
+                    goodsId:item.id
                 }
-            }
-            if(!flag) this.cartsList.push(item)
-            console.log(this.cartsList)
+            })
+            .then(res=>{//对请求成功的结果进行处理   res成功的结果
+                console.log(res)
+            })
+            .catch(function(err){//对请求失败的结果进行处理   err成功的结果
+                console.log(err)
+            })
+            
         },
         //获取菜品数据
         getFoodsData(){
             //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -150,7 +164,7 @@ export default {
         addGoods(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -163,7 +177,7 @@ export default {
         getCartsData(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -176,7 +190,7 @@ export default {
         deleGoods(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -189,7 +203,7 @@ export default {
         addOrder(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -202,7 +216,7 @@ export default {
         getOrderData(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
@@ -215,7 +229,7 @@ export default {
         deleOrder(){
              //axios的请求
             this.Axios({
-                method:GET,//请求方式
+                method:'GET',//请求方式
                 url:'',//请求地址
                 data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
