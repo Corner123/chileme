@@ -97,7 +97,8 @@ export default {
             ],
             stampFood:[
                 {id:'st001',goodname:'rice',price:3,rate:3},
-                {id:'st002',goodname:'noodles',price:6,rate:3}
+                {id:'st002',goodname:'noodles',price:6,rate:3},
+                {id:'st003',goodname:'noodle',price:5,rate:3}
             ],
             drinks:[
                 {id:'dk001',goodname:'beer',price:5,rate:3},
@@ -136,7 +137,7 @@ export default {
                 method:'POST',
                 url:'/api/carts/addGoods',
                 data:{
-                    goodsId:item.id
+                    goodsId:1588899308197
                 }
             })
             .then(res=>{//对请求成功的结果进行处理   res成功的结果
