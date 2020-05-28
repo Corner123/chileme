@@ -230,6 +230,8 @@ export default {
             height: 100%;  
         }
         .leftForm{
+            overflow-y: auto;
+            overflow-x: auto;
             background: lightskyblue;
             .el-form{
                 width:60%;
