@@ -1,34 +1,27 @@
 <template lang="pug">
     div.carts
-        el-table(:data='cartsTable',border)
+        el-table(:data='cartsList',border)
             el-table-column(prop="goodname",label="商品")
             el-table-column(prop="num",label="数量")
             el-table-column(prop="price",label="金额")
             el-table-column(prop="methods",label="操作")
-                //- 1.删除 2.修改数量+ -
+                template(slot-scope="scope")
+                    el-button(type="text",size="small",@click="deleteHandle(scope.row)") 删除
         el-divider
-        p {{`数量 ${cartsTable.length} 金额 ${total}`}}  
         el-button(type='danger') 清空
         el-button(type='success') 结算 
 </template>
 <script>
 export default {
     data(){
-        return{
-            cartsTable:[],
-        }
+        return{}
     },
     props:['cartsList'],
-    mounted(){
-        this.cartsTable = this.cartsList
-    },
-    computed:{
-        total(){
-            let n =0;
-            for(const item of this.cartsTable){
-                n+= item.num*item.price
-            }
-            return
+    methods:{
+        deleteHandle(row){
+            console.log(row)
+            console.log('-----------父')
+            this.$emit('dianji',row)
         }
     }
 }

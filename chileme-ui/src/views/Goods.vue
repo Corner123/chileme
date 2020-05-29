@@ -5,7 +5,7 @@
                 div.cortsAndOrder
                     el-tabs(v-model="activeName")
                         el-tab-pane(label="点餐",name="first")
-                            Carts(:cartsList="cartsList")
+                            Carts(:cartsList="cartsList" v-on:dianji="receiveHandle")
                         el-tab-pane(label="订单",name="second")
                             Order(:ordersList="ordersList")   
             el-col(:span='16')
@@ -58,9 +58,9 @@
                                                 div.goodsDesPrice {{`价格: ${item.price}`}}
 </template>
 <script>
-import Carts from '@/components/Carts.vue'
+import Carts from '@/components/Carts.vue'  //import 组件名 from 组件存放位置
 import Order from '@/components/Order.vue'
-export default {
+export default {//将组件暴露给其它组件
     data(){
         return{
             activeName:'', // 购物车和订单的切换
@@ -72,15 +72,15 @@ export default {
             coldFoods:[],
             stampFood:[],
             drinks:[],
-            cartsList:[],
+            cartsList:[],//购物车数据
             ordersList:[
                 {orderNo:'ODR00001',data:'2020-05-20 15:18',price:100,id:'ord01'},
-                {orderNo:'ODR00002',data:'2020-05-20 15:18',price:100,id:'ord02'},
-                {orderNo:'ODR00003s',data:'2020-05-20 15:18',price:100,id:'ord03'}
+                {orderNo:'ODR00002',data:'2020-05-20 15:18',price:200,id:'ord02'},
+                {orderNo:'ODR00003',data:'2020-05-20 15:18',price:400,id:'ord03'}
             ]
         }
     },
-    components:{
+    components:{//将列入的组件配置到当前的组件中
         Carts,Order
     },
     mounted(){
@@ -90,7 +90,15 @@ export default {
         this.getOrderData()//获取订单数据
     },
     methods:{
+        //用来接收从子组件传递过来的数据
+        receiveHandle(arg){
+            console.log(arg)//子组件传递过来的实参
+            console.log('--------')
+            this.deleGoods(arg)
+
+        },
         addToCarts(item){
+            // this.receiveHandle('a')
             this.Axios({
                 method:'POST',
                 url:'/api/carts/addGoods',
@@ -99,7 +107,6 @@ export default {
                 }
             })
             .then(res=>{//对请求成功的结果进行处理   res成功的结果
-                console.log(res)
                 this.getCartsData()
             })
             .catch(function(err){//对请求失败的结果进行处理   err成功的结果
@@ -113,7 +120,7 @@ export default {
             this.Axios({
                 method:'GET',//请求方式
                 url:'/api/user/getGoodsList',//请求地址
-                // data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
+                // params:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
                 console.log(res)
                 //遍历数据
@@ -140,21 +147,26 @@ export default {
                 method:'GET',//请求方式
                 url:'/api/carts/queryCartsData',//请求地址
                 // data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
-            }).then(res=>{//请求成功的回调函数  res请求返回的结果
-                console.log(res)
+            }).then(res=>{//请求成功的回调函数  res请求返回的结果  res是从carts_controller.js里面的ctx.body来的
+                console.log(res.data.list)
+                this.cartsList=res.data.list
             }).catch(err=>{//请求失败的回调函数  err请求失败的返回结果
                 console.log(err)
             })
         },
         //删除购物车中的商品数据
-        deleGoods(){
+        deleGoods(item){
              //axios的请求
             this.Axios({
-                method:'GET',//请求方式
-                url:'',//请求地址
-                data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
+                method:'POST',//请求方式
+                url:'/api/carts/deleGoods',//请求地址
+                data:{
+                     goodsId:item.goodsId
+                },//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果
-                console.log(res)
+                // console.log(res)
+                //删除操作成功之后进行页面数据更新
+                this.getCartsData()//删除操作完成之后，调用查询购物车数据的方法进行数据的更新
             }).catch(err=>{//请求失败的回调函数  err请求失败的返回结果
                 console.log(err)
             })
