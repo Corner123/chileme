@@ -8,7 +8,7 @@
                 template(slot-scope="scope")
                     el-button(type="text",size="small",@click="deleteHandle(scope.row)") 删除
         el-divider
-        el-button(type='danger') 清空
+        el-button(type='danger' @click="deleteAllGoods") 清空
         el-button(type='success') 结算 
 </template>
 <script>
@@ -22,6 +22,17 @@ export default {
             console.log(row)
             console.log('-----------父')
             this.$emit('dianji',row)
+        },
+        deleteAllGoods(){
+            this.Axios({
+                method:'GET',
+                url:'/api/carts/deteleAll'
+            }).then(res=>{
+                console.log(res)
+                 this.$emit('shanchu')
+            }).catch(err=>{
+                console.log(err)
+            })
         }
     }
 }

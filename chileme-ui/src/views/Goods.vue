@@ -5,7 +5,7 @@
                 div.cortsAndOrder
                     el-tabs(v-model="activeName")
                         el-tab-pane(label="点餐",name="first")
-                            Carts(:cartsList="cartsList" v-on:dianji="receiveHandle")
+                            Carts(:cartsList="cartsList" v-on:dianji="receiveHandle",v-on:shanchu="getCartsData")
                         el-tab-pane(label="订单",name="second")
                             Order(:ordersList="ordersList")   
             el-col(:span='16')
