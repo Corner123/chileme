@@ -56,7 +56,7 @@ export default {
                 this.Axios({
                     method:'GET',//请求方式
                     url:'',//请求的接口地址
-                    data:{//请求携带的参数
+                   params:{//请求携带的参数
                         name:'a',
                         age:10
                     },
