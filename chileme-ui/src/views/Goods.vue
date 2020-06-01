@@ -146,7 +146,7 @@ export default {//将组件暴露给其它组件
             this.Axios({
                 method:'GET',//请求方式
                 url:'/api/carts/queryCartsData',//请求地址
-                // data:{},//请求携带的参数，若该请求不需要携带参数，则忽略
+                // params:{},//请求携带的参数，若该请求不需要携带参数，则忽略
             }).then(res=>{//请求成功的回调函数  res请求返回的结果  res是从carts_controller.js里面的ctx.body来的
                 console.log(res.data.list)
                 this.cartsList=res.data.list
